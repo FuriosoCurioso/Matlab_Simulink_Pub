@@ -70,4 +70,4 @@ Portfolio aus Studium und Freizeit: Sensorfusion und Zustandsschätzung (Kalman,
 
 ## License
 
-[MIT](LICENSE) © 2026 Ramo Agic
+[MIT](LICENSE) © 2026 Ramo
