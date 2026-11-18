@@ -66,7 +66,7 @@ git clone https://github.com/FuriosoCurioso/Matlab_Simulink_Pub.git
 
 ## Deutsch (Kurzfassung)
 
-Portfolio aus dem Masterstudium: Sensorfusion und Zustandsschätzung (Kalman, EKF, UKF, Multi-Objekt-Tracking), modellbasierte Entwicklung mit Simulink/Stateflow auf Arduino-Hardware, Messunsicherheit und Regression sowie eine verifizierte Modellkette zur Fahrzeug-Längsdynamik. Versioniert sind nur Quelltexte; Messdaten liegen nicht bei.
+Portfolio aus Studium und Freizeit: Sensorfusion und Zustandsschätzung (Kalman, EKF, UKF, Multi-Objekt-Tracking), modellbasierte Entwicklung mit Simulink/Stateflow auf Arduino-Hardware, Messunsicherheit und Regression sowie eine verifizierte Modellkette zur Fahrzeug-Längsdynamik. Quelltexte; Messdaten liegen nicht bei und sind zu erzeugen; oder anfragen ;-) 
 
 ## License
 
