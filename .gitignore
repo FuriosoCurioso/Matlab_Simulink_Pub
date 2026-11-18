@@ -1,0 +1,14 @@
+# Erzeugt von aktualisiereGitignore.m - nicht von Hand aendern
+*
+!*/
+!*.m
+!*.slx
+!README.md
+!LICENSE
+!.gitignore
+!.gitattributes
+/erase.m
+
+# Nummerierte Varianten mit gleichnamiger Grunddatei
+/Arduino/A6_TempMessung_NTC/messeTemperatur2.m
+/Arduino/L4_Taster/leseTaster2.m
