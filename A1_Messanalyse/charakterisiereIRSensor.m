@@ -1,3 +1,5 @@
+% Charakterisierung des IR-Abstandssensors aus IRMessung.mat: Messbereich, Zeitaufloesung a_t,
+% Werteaufloesung a_s, Kennlinie d(U) (Potenzansatz) mit Konfidenzband, Empfindlichkeit E und Messunsicherheit (1 sigma).
 
 
 clear; clc;
@@ -87,7 +89,7 @@ afEmpf = 1 ./ abs(differentiate(FitKennlinie,afSpgFein));         % Empfindlichk
 % Werteaufloesung a_s = U_LSB / E, Faktor 10 fuer cm -> mm
 afAufl = U_LSB ./ afEmpf * 10;                                    % Werteaufloesung a_s [mm]
 
-% notwendige Werte A2.4
+% Kennwerte der Sensorcharakterisierung
 afDt = vertcat(caDt{:});                                          % alle Zeitabstaende [s]
 fAtMedian = median(afDt);                                         % typische Zeitaufloesung [s]
 fAuflMin = min(afAufl) / 10;                                      % feinste Werteaufloesung [cm]
@@ -161,10 +163,10 @@ title('Messunsicherheit 1\sigma (Durchgang 2, ungefiltert)');
 xlabel('Abstand d [cm]');
 ylabel('Messunsicherheit \sigma [cm]');
 
-% Antworten (Werte eintragen)
-%   kehrt die Kennlinie um (Abstand nicht eindeutig), oberhalb von fMbMax ist die
+% Befunde zur Kennlinie
+%   Unterhalb von fMbMin kehrt sich die Kennlinie um (Abstand nicht eindeutig), oberhalb von fMbMax ist die
 %   Spannungsaenderung zur Folgestufe kleiner als die Streuung.
-%   unveraenderte ADC-Folgewerte verlaengern dt [Interpretation].
+%   Zeitaufloesung a_t: unveraenderte ADC-Folgewerte verlaengern dt [Interpretation].
 %   a_s = U_LSB / E waechst mit dem Abstand, weil E sinkt.
 % Vergleich mit dem Datenblatt (Sheet No. OP13008EN)
 %   DB 30 cm -> 4 cm: 1,95 / 2,25 / 2,55 V

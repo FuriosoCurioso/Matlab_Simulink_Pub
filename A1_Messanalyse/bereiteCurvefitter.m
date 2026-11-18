@@ -1,3 +1,5 @@
+% Aufbereitung der IR-Sensordaten (IRMessung.mat) fuer die Curve-Fitting-Toolbox:
+% x = mittlere gefilterte Spannung je Sollabstand [V], y = Sollabstand [cm].
 
 clear; clc;
 

@@ -1,3 +1,5 @@
+% Charakterisierung des Ultraschall-Abstandssensors aus USMessung.mat: Messbereich, Zeitaufloesung a_t,
+% Werteaufloesung a_s, Empfindlichkeit E und Messunsicherheit (1 sigma) je Sollabstand; Vergleich mit dem Datenblatt.
 %{
 close all; clear; clc;
 load('USMessung.mat');
@@ -51,8 +53,8 @@ fMessMin = min(afMesswerte(:));       % kleinster Messwert [cm]
 fMessMax = max(afMesswerte(:));       % groesster Messwert [cm]
 fprintf('Messbereich MB: %.2f cm bis %.2f cm\n',fMessMin,fMessMax);
 
-% Welchen Messbereich hat der Sensor in cm?
-% Antwort: Gemessen 5 cm bis 25 cm. Das ist der im Versuch genutzte Bereich
+% Ergebnis Messbereich
+% Gemessen 5 cm bis 25 cm. Das ist der untersuchte Bereich
 % (Stufen 5 bis 25 cm). Den vollen Sensorbereich zeigen die Daten nicht; er wurde
 % nicht ausgemessen.
 
@@ -65,10 +67,10 @@ title('Zeitaufloesung a_t: Abstand aufeinanderfolgender Messwerte');
 xlabel('Messwert Index. [-]'); 
 ylabel('Zeitauflösung a_t [s]');
 
-% Welche max. Abtastrate hat der Sensor?
+% Maximale Abtastrate
 fAbtastMax = 1 / fZeitAufl;           % Abtastrate f = 1 / a_t [Hz]
 
-% Antwort: a_t = 0,1 s in allen Stufen, also 10 Hz. Diese Rate ist durch die
+% Ergebnis: a_t = 0,1 s in allen Stufen, also 10 Hz. Diese Rate ist durch die
 % Sample time 0,1 s des Simulink-Modells vorgegeben, nicht durch den Sensor.
 % Die maximale Abtastrate des Sensors ist aus diesen Daten nicht bestimmbar.
 
@@ -82,8 +84,8 @@ title('Werteaufloesung a_s: Schritte zwischen benachbarten Messwerten');
 xlabel('Messwert [cm]'); 
 ylabel('Werteschritt a_s [cm]');
 
-% Welche Werteaufloesung hat der Sensor?
-% Antwort: a_s = X cm. Alle Werteschritte innerhalb einer Stufe sind
+% Werteaufloesung
+% Ergebnis: a_s = fWertAufl (Ausgabe in cm). Alle Werteschritte innerhalb einer Stufe sind
 % ganzzahlige Vielfache davon. Der Wert entspricht 1 us Laufzeit bei 343 m/s
 % (343 m/s * 1 us / 2); die Werte sind also zeitlich quantisiert.
 
@@ -97,8 +99,8 @@ title('Empfindlichkeit E zwischen benachbarten Stufen');
 xlabel('Abstandsintervall [cm]'); 
 ylabel('Empfindlichkeit E [-]');
 
-% In welchem Bereich ist der Sensor am empfindlichsten?
-% Antwort: Zwischen 12,5cm und 17,5 cm (E = 0,98115). Ideal waere E = 1. Die Abweichungen
+% Empfindlichster Bereich
+% Ergebnis: Zwischen 12,5 cm und 17,5 cm (E = 0,98115). Ideal waere E = 1. Die Abweichungen
 % liegen in der Groessenordnung der Positionierfehler des Reflektors.
 
 % sigma: Darstellung als MATLAB-Plot
@@ -109,19 +111,19 @@ title('Unsicherheit sigma der Einzelmessung');
 xlabel('Sollabstand [cm]'); 
 ylabel('Standardabweichung sigma [cm]');
 
-% Mit welcher Unsicherheit (1 sigma) laesst sich eine glatte Flaeche bestimmen?
-% Antwort: 1 sigma je Stufe 1.35mm zwischen 10 cm  und 20 cm .
-% Groesster Wert: 0.135cm . 
+% Unsicherheit (1 sigma) bei glatter reflektierender Flaeche
+% Ergebnis: 1 sigma je Stufe 1,35 mm zwischen 10 cm und 20 cm.
+% Groesster Wert: 0,135 cm.
 
 % Vergleich der Messwerte mit dem Datenblatt
 % Grundlage: Technische Uebersicht (2 bis 450 cm, Messunsicherheit 3 mm, Messfrequenz 50 Hz)
 % - Messbereich: gemessen 5 bis 25 cm, liegt innerhalb 2 bis 450 cm.
 % - Zeitaufloesung a_t: 0,1s
 % - Unsicherheit: gemessen hoechstens 1.35 mm (1 sigma), unter den 3 mm des Datenblatts.
-% - Mittelwerte gegenueber Sollabstand: 0,017149 / 0,017149 / 0,017149 / 0,017149 / 0,017149 jeweils [cm].
-%   Die Abweichungen bei 10,15,20,25  cm uebersteigen 3 mm deutlich (~5,6cm) und sind systematisch
+% - Mittelwerte gegenueber Sollabstand: Abweichung afMittel - afSollAbstand [cm].
+%   Die Abweichungen bei 10,15,20,25  cm uebersteigen 3 mm deutlich (~5,6 cm) und sind systematisch
 % - Empfindlichkeit E: Zwischen 12,5cm und 17,5 cm (E = 0,98115). Ideal waere E = 1.
 % - Abtastrate: gemessen 10 Hz (Modelleinstellung), Datenblatt 50 Hz.
-% - Werteaufloesung: gemessen 1,7149 mm; das Datenblatt nennt keine Aufloesung,
+% - Werteaufloesung: gemessen fWertAufl (Rechnung: 343 m/s * 1 us / 2 = 0,17149 mm); das Datenblatt nennt keine Aufloesung,
 %   die 3 mm sind eine Unsicherheitsangabe laut Datenblatt
 
