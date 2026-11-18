@@ -36,7 +36,7 @@ This repository collects my engineering work from the Master's programme: Kalman
 └── Sig_Sys/              Measurement uncertainty (GUM), regression, hypothesis tests, analogue signals
 ```
 
-## Skills demonstrated
+## Technical fields
 
 - **State estimation:** linear, extended and unscented Kalman filters; process/measurement noise tuning; gating and data association
 - **Model-based design:** Simulink, Stateflow, Vehicle Dynamics Blockset; deployment to Arduino UNO R4 WiFi with monitor-and-tune
