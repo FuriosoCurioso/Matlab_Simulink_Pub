@@ -65,9 +65,8 @@ k = 1 + R1/R2
 dR1 = 400 % Ohm
 dR2 = -30 % Ohm
 
-% Tatsaechliche Verstaerkung mit abweichenden Widerstandswerten
-% kreal = 1 + (R1 + dR1)/(R2 + dR2)
-kreal = 1 + (R1 + dR1)/(R2 + dR2)
+kreal = 1 + (R1+dR1)/(R2+dR2);       % tatsächliche Verstärkung mit Widerstandsabweichungen
+dk = (1/R2)*dR1 + (-R1/R2^2)*dR2;    % lineare Näherung der Verstärkungsabweichung
 
 % Relativer Fehler der tatsaechlichen Verstaerkung in Prozent
 % eRel = ((kreal - k)/k)*100
